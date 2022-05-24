@@ -1,7 +1,7 @@
 <?php
 
 
-class ContentNotifierEmail extends Object
+class ContentNotifierEmail extends SS_Object
 {
 
     protected $emailer;
@@ -10,8 +10,8 @@ class ContentNotifierEmail extends Object
     protected $records;
 
 
-    public function __construct() {        
-        $this->emailer = Email::create();        
+    public function __construct() {
+        $this->emailer = Email::create();
         $config = $this->config();
 
         $this->emailer->setFrom($config->from);
@@ -43,7 +43,7 @@ class ContentNotifierEmail extends Object
         $this->emailer->populateTemplate(array(
             'Headline' => $this->config()->headline,
             'GroupedItems' => $grouped,
-            'Total' => $total,            
+            'Total' => $total,
             'Link' => Controller::join_links(
                 Director::absoluteBaseURL(),
                 'admin',
